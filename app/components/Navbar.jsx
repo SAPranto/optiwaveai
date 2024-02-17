@@ -16,7 +16,7 @@ const navbar = () => {
         <div>Image</div>
         <div
           className={`text-center bg-red-500 absolute top-0 right-0 px-24 py-14 h-full ${
-            isNavOpen ? "block" : "hidden"
+            isNavOpen ? "transform translate-x-0 transition-transform duration-300 ease-out" : "transform translate-x-full transition-transform duration-200"
           } lg:block lg:relative lg:bg-transparent lg:py-0 lg:px-0`}
         >
           <ul className="flex flex-col items-center gap-10 lg:flex-row">
