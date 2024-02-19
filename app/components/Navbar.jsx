@@ -1,9 +1,10 @@
 "use client";
+"use client";
 import React, { useState, useEffect } from "react";
 import { GiHamburgerMenu, GiCancel } from "react-icons/gi";
 import Image from "next/image";
 
-const Navbar = () => {
+const Navbar = ({ ButtonText = "User Login" }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [sticky, setSticky] = useState(false);
 
@@ -24,7 +25,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`py-5 w-full transition-[background-color] duration-500 sticky top-0 ${
+      className={` mt-5 py-5 w-full transition-[background-color] duration-500 sticky top-0 ${
         sticky ? "sticky-navbar" : ""
       }`}
     >
@@ -39,12 +40,17 @@ const Navbar = () => {
               : "translate-x-full lg:transform-none"
           } lg:block lg:relative lg:bg-transparent lg:py-0 lg:px-0`}
         >
-          <ul className="flex flex-col items-center gap-10 lg:flex-row">
+          <ul className="flex uppercase flex-col items-center gap-10 lg:flex-row">
             <li>Home</li>
             <li>About</li>
             <li>Contact</li>
             <li>Career</li>
-            <li className="primary-btn">Button</li>
+            <button href="#" className="navbar-button w-inline-block">
+              <div className="button-text-wrapper">
+                <div className="default-text">{ButtonText}</div>
+                <div className="hover-text">{ButtonText}</div>
+              </div>
+            </button>
           </ul>
           <GiCancel
             className="absolute top-4 right-4 cursor-pointer lg:hidden"

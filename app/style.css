@@ -1,0 +1,43 @@
+.hero-section {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), transparent),
+    url("/hero.jpg");
+  object-fit: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  background-position: bottom;
+}
+.navbar-button {
+  color: #fff;
+  background-color: #d30b0d;
+  border-radius: 2px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 18px;
+  line-height: 28px;
+  position: relative;
+  transition: background-color 0.5s ease-out;
+}
+.navbar-button:hover {
+  background-color: #428bca;
+}
+
+.button-text-wrapper {
+  height: 28px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.default-text {
+  transition: transform 0.3s ease;
+}
+.hover-text {
+  transition: transform 0.3s ease;
+}
+.navbar-button:hover .default-text {
+  transform: translateY(-100%);
+}
+
+.navbar-button:hover .hover-text {
+  transform: translateY(-100%);
+}

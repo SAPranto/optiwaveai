@@ -19,15 +19,6 @@ body {
 li {
   @apply cursor-pointer font-semibold hover:text-secondary-color transition-colors duration-500;
 }
-.hero-section {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), transparent),
-    url("/hero.jpg");
-  object-fit: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 100%;
-  background-position: bottom;
-}
 .sticky-navbar {
   @apply bg-white lg:text-black;
 }
