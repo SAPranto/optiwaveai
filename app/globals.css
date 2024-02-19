@@ -39,7 +39,3 @@ li {
   @apply -translate-y-full;
 }
 /* Button Style Ends */
-
-.sticky-navbar {
-  @apply bg-white lg:text-black;
-}

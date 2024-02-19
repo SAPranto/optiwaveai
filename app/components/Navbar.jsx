@@ -7,24 +7,33 @@ import Image from "next/image";
 const Navbar = ({ ButtonText = "User Login" }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [sticky, setSticky] = useState(false);
+  const [navMove, setNavMove] = useState(false);
 
   const onNavClick = () => {
     setIsNavOpen((prevIsNavOpen) => !prevIsNavOpen);
   };
 
   const setStickyOn = () => {
-    setSticky(window.scrollY >= 120);
+    setSticky(window.scrollY >= 500);
+  };
+
+  const setNavMoved = () => {
+    setNavMove(window.scrollY >= 100);
   };
 
   useEffect(() => {
     window.addEventListener("scroll", setStickyOn);
   });
 
+  useEffect(() => {
+    window.addEventListener("scroll", setNavMoved);
+  });
+
   return (
     <nav
-      className={` mt-5 py-5 w-full transition-[background-color] duration-500 sticky top-0 ${
-        sticky ? "sticky-navbar" : ""
-      }`}
+      className={`mt-5 py-5 w-full transition-transform duration-500 sticky top-0 ${
+        sticky ? "-translate-y-0 bg-white lg:text-black" : ""
+      } ${navMove ? "-translate-y-full" : ""}`}
     >
       <div className="container flex justify-between items-center">
         <div>
