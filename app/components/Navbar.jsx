@@ -1,34 +1,39 @@
 "use client";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { GiHamburgerMenu, GiCancel } from "react-icons/gi";
+import Image from "next/image";
 
-import React from "react";
-
-const navbar = () => {
+const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [sticky, setSticky] = useState(false);
 
   const onNavClick = () => {
-    setIsNavOpen(!isNavOpen);
+    setIsNavOpen((prevIsNavOpen) => !prevIsNavOpen);
   };
 
-  const [fix, setFix] = useState(false);
-
-  const setFixed = () => {
-    if (window.scrollY >= 390) {
-      setFix(true);
-    } else {
-      setFix(false);
-    }
+  const setStickyOn = () => {
+    setSticky(window.scrollY >= 120);
   };
 
-  window.addEventListener("scroll", setFixed)
+  useEffect(() => {
+    window.addEventListener("scroll", setStickyOn);
+    return () => {
+      window.removeEventListener("scroll", setStickyOn);
+    };
+  }, []);
 
   return (
-    <nav className="py-5 text-white">
-      <div className="container flex justify-between">
-        <div>Image</div>
+    <nav
+      className={`py-5 w-full transition-[background-color] duration-500 sticky top-0 ${
+        sticky ? "sticky-navbar" : ""
+      }`}
+    >
+      <div className="container flex justify-between items-center">
+        <div>
+          <Image src="/logo.png" width={120} height={500} alt="Site Logo" />
+        </div>
         <div
-          className={`text-center bg-red-500 absolute top-0 right-0 px-24 py-14 h-full transform transition-transform duration-300 ease-out ${
+          className={`text-center bg-red-600 absolute top-0 right-0 px-24 py-14 h-[100vh] lg:h-full transform transition-transform duration-300 ease-out ${
             isNavOpen
               ? "translate-x-0 lg:transform-none"
               : "translate-x-full lg:transform-none"
@@ -44,15 +49,15 @@ const navbar = () => {
           <GiCancel
             className="absolute top-4 right-4 cursor-pointer lg:hidden"
             onClick={onNavClick}
-          ></GiCancel>
+          />
         </div>
         <GiHamburgerMenu
-          className="cursor-pointer lg:hidden"
+          className={`cursor-pointer lg:hidden ${sticky ? "text-black" : ""}`}
           onClick={onNavClick}
-        ></GiHamburgerMenu>
+        />
       </div>
     </nav>
   );
 };
 
-export default navbar;
+export default Navbar;
