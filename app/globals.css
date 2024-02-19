@@ -13,12 +13,33 @@ body {
 .section {
   @apply py-28;
 }
-.primary-btn {
-  @apply py-2 px-8 bg-primary-color text-white border border-primary-color rounded-sm text-sm font-semibold uppercase cursor-pointer hover:bg-transparent transition-colors ease-out duration-200;
-}
 li {
   @apply cursor-pointer font-semibold hover:text-secondary-color transition-colors duration-500;
 }
+.hero-section {
+  @apply bg-[linear-gradient(to_bottom,rgba(0,0,0,1),transparent),url("/hero.jpg")] object-cover bg-no-repeat h-screen w-full bg-bottom;
+}
+/* Button Style Starts */
+.primary-button {
+  @apply text-white bg-[#d30b0d] hover:bg-[#428bca] justify-center items-center text-lg leading-7 relative transition-[background-color] duration-[0.5s] ease-[ease-out] px-5 py-2.5 rounded-sm;
+}
+.button-text-wrapper {
+  @apply h-7 whitespace-nowrap overflow-hidden;
+}
+.default-text {
+  @apply transition-transform duration-[0.3s] ease-[ease];
+}
+.hover-text {
+  @apply transition-transform duration-[0.3s] ease-[ease];
+}
+.primary-button:hover .default-text {
+  @apply -translate-y-full;
+}
+.primary-button:hover .hover-text {
+  @apply -translate-y-full;
+}
+/* Button Style Ends */
+
 .sticky-navbar {
   @apply bg-white lg:text-black;
 }

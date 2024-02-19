@@ -18,10 +18,7 @@ const Navbar = ({ ButtonText = "User Login" }) => {
 
   useEffect(() => {
     window.addEventListener("scroll", setStickyOn);
-    return () => {
-      window.removeEventListener("scroll", setStickyOn);
-    };
-  }, []);
+  });
 
   return (
     <nav
@@ -34,7 +31,7 @@ const Navbar = ({ ButtonText = "User Login" }) => {
           <Image src="/logo.png" width={120} height={500} alt="Site Logo" />
         </div>
         <div
-          className={`text-center bg-red-600 absolute top-0 right-0 px-24 py-14 h-[100vh] lg:h-full transform transition-transform duration-300 ease-out ${
+          className={`text-center bg-background-color absolute top-0 right-0 px-24 py-14 h-[100vh] lg:h-full transform transition-transform duration-300 ease-out ${
             isNavOpen
               ? "translate-x-0 lg:transform-none"
               : "translate-x-full lg:transform-none"
@@ -45,7 +42,7 @@ const Navbar = ({ ButtonText = "User Login" }) => {
             <li>About</li>
             <li>Contact</li>
             <li>Career</li>
-            <button href="#" className="navbar-button w-inline-block">
+            <button href="#" className="primary-button">
               <div className="button-text-wrapper">
                 <div className="default-text">{ButtonText}</div>
                 <div className="hover-text">{ButtonText}</div>
