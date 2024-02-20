@@ -40,7 +40,7 @@ const Navbar = ({ ButtonText = "User Login" }) => {
 
   return (
     <nav
-      className={`mt-5 py-5 w-full transition-colors duration-700 lg:transition-transform lg:duration-500 sticky top-0 ${
+      className={`mt-5 py-5 w-full transition-all duration-300 ease sticky top-0 ${
         sticky ? "bg-white lg:text-black" : ""
       } ${navMove ? "lg:-translate-y-full" : "lg:-translate-y-0"}`}
     >
