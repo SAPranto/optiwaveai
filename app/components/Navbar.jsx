@@ -13,11 +13,11 @@ const Navbar = ({ ButtonText = "User Login" }) => {
   };
 
   const setStickyOn = () => {
-    setSticky(window.scrollY >= 400);
+    setSticky(window.scrollY >= 300);
   };
 
   const setNavMoved = () => {
-    setNavMove(window.scrollY >= 100 && window.scrollY <= 500);
+    setNavMove(window.scrollY >= 50 && window.scrollY <= 600);
   };
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const Navbar = ({ ButtonText = "User Login" }) => {
 
   return (
     <nav
-      className={`mt-5 py-5 border-none w-full transition-colors lg:transition-transform duration-500 sticky top-0 ${
+      className={`mt-5 py-5 w-full transition-colors duration-700 lg:transition-transform lg:duration-500 sticky top-0 ${
         sticky ? "bg-white lg:text-black" : ""
       } ${navMove ? "lg:-translate-y-full" : "lg:-translate-y-0"}`}
     >
