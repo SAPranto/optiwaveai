@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { GiHamburgerMenu, GiCancel } from "react-icons/gi";
 import Image from "next/image";
+import Button from "./Button"; // Import the Button component
 
 const Navbar = ({ ButtonText = "User Login" }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -60,12 +61,7 @@ const Navbar = ({ ButtonText = "User Login" }) => {
             <li>About</li>
             <li>Contact</li>
             <li>Career</li>
-            <button href="#" className="primary-button">
-              <div className="button-text-wrapper">
-                <div className="default-text">{ButtonText}</div>
-                <div className="hover-text">{ButtonText}</div>
-              </div>
-            </button>
+            <Button buttonText={ButtonText} /> {/* Use the Button component */}
           </ul>
           <GiCancel
             className="absolute top-4 right-4 cursor-pointer lg:hidden"

@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { Jost } from "next/font/google";
+import { Jost, Merriweather } from "next/font/google";
 import "./globals.css";
 import "./style.css";
 import Navbar from "./components/Navbar";
 
 const jost = Jost({ subsets: ["latin"] });
+const merriweather = Merriweather({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={jost.className}>
+      <body className={`${jost.className} ${merriweather.className}`}>
         <Navbar />
         {children}
       </body>
