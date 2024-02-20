@@ -1,5 +1,4 @@
 "use client";
-"use client";
 import React, { useState, useEffect } from "react";
 import { GiHamburgerMenu, GiCancel } from "react-icons/gi";
 import Image from "next/image";
@@ -14,26 +13,36 @@ const Navbar = ({ ButtonText = "User Login" }) => {
   };
 
   const setStickyOn = () => {
-    setSticky(window.scrollY >= 500);
+    setSticky(window.scrollY >= 400);
   };
 
   const setNavMoved = () => {
-    setNavMove(window.scrollY >= 100);
+    setNavMove(window.scrollY >= 100 && window.scrollY <= 500);
   };
 
   useEffect(() => {
     window.addEventListener("scroll", setStickyOn);
-  });
+
+    // Cleanup function for removing the event listener
+    return () => {
+      window.removeEventListener("scroll", setStickyOn);
+    };
+  }, []); // Empty dependency array means it will only run once on mount
 
   useEffect(() => {
     window.addEventListener("scroll", setNavMoved);
-  });
+
+    // Cleanup function for removing the event listener
+    return () => {
+      window.removeEventListener("scroll", setNavMoved);
+    };
+  }, []); // Empty dependency array means it will only run once on mount
 
   return (
     <nav
-      className={`mt-5 py-5 w-full transition-transform duration-500 sticky top-0 ${
-        sticky ? "-translate-y-0 bg-white lg:text-black" : ""
-      } ${navMove ? "-translate-y-full" : ""}`}
+      className={`mt-5 py-5 border-none w-full transition-colors lg:transition-transform duration-500 sticky top-0 ${
+        sticky ? "bg-white lg:text-black" : ""
+      } ${navMove ? "lg:-translate-y-full" : "lg:-translate-y-0"}`}
     >
       <div className="container flex justify-between items-center">
         <div>
